@@ -1,11 +1,10 @@
 import { createClient } from '@/utils/supabase/server';
+import db from '@/utils/drizzle/db';
+import { instruments } from '@/utils/drizzle/schema';
+import { eq } from 'drizzle-orm';
 
 export default async function Instruments() {
-  const supabase = await createClient();
-  console.log(supabase);
-  const { data: instruments } = await supabase.from("instruments").select();
+  const allInstruments = await db.select().from(instruments).where(eq(instruments.id, 1));
 
-
-  console.log(instruments);
-  return <pre>{JSON.stringify(instruments, null, 2)}</pre>
+  return <pre>{JSON.stringify(allInstruments, null, 2)}</pre>
 }
