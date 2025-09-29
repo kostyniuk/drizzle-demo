@@ -4,7 +4,7 @@ import { instruments } from '@/utils/drizzle/schema';
 import { eq } from 'drizzle-orm';
 
 export default async function Instruments() {
-  const allInstruments = await db.select().from(instruments).where(eq(instruments.id, 1));
+  const allInstruments = await db.select().from(instruments)
 
   return <pre>{JSON.stringify(allInstruments, null, 2)}</pre>
 }
