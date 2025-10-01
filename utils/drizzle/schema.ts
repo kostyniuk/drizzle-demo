@@ -1,8 +1,11 @@
-import { pgTable, serial, text } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
 export const instruments = pgTable('instruments', {
   id: serial('id').primaryKey(),
   name: text('name'),
+  description: text('description'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
 });
 
 type SelectInstrument = typeof instruments.$inferSelect;

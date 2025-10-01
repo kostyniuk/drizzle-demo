@@ -5,7 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:push": "drizzle-kit push",
+    "drizzle:studio": "drizzle-kit studio",
+    "drizzle:check": "drizzle-kit check",
+    "drizzle:migrate": "drizzle-kit migrate",
+    "drizzle:pull": "drizzle-kit pull"
   },
   "dependencies": {
     "@supabase/ssr": "^0.7.0",
@@ -21,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^16.6.1",
     "drizzle-kit": "^0.31.5",
     "tailwindcss": "^4",
     "typescript": "^5"
