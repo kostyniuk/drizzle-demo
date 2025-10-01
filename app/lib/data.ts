@@ -16,14 +16,14 @@ export const listInstruments = async () => {
   return allInstruments;
 }
 
-export const createInstrument = async (instrument: { name: string }) : Promise<Instrument> => {
+export const createInstrument = async (instrument: { name: string }) => {
   const newInstruments = await db.insert(instruments).values(instrument).returning();
   console.log(newInstruments);
   revalidatePath('/instruments')
   return newInstruments[0];
 }
 
-export const createInstrumentTx = async (instrument: { name: string }) : Promise<Instrument> => {
+export const createInstrumentTx = async (instrument: { name: string }) => {
     let newInstrument: Instrument | undefined;
     try {
         await db.transaction(async (tx) => {
