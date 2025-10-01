@@ -11,6 +11,6 @@ const client = postgres(connectionString, { prepare: false })
 const db = drizzle(client)
 
 // Run migrations synchronously at module load; throw to block server start on failure
-await runMigrationsOnce()
+await runMigrationsOnce(db)
 
 export default db;
