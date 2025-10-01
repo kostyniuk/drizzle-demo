@@ -1,13 +1,18 @@
 'use server'
 
-import { Instrument, instruments, instrumentTypes } from "@/utils/drizzle/schema"
+import { instruments } from "@/utils/drizzle/schema"
 import db from "@/utils/drizzle/db"
 import { revalidatePath } from 'next/cache'
 import { sql } from "drizzle-orm"
+import { Instrument } from "@/utils/drizzle/types"
 
 // List all instruments
 export const listInstruments = async () => {
-  const allInstruments = await db.select().from(instruments)
+  const allInstruments = await db.query.instruments.findMany({
+    with: {
+      instrumentType: true
+    }
+  })
   return allInstruments;
 }
 
