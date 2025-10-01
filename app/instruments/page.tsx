@@ -5,6 +5,8 @@ export default async function Instruments() {
   
     const allInstruments = await listInstruments();
 
+
+    console.log(allInstruments)
   return (
     <>
         <CreateBlock />

@@ -1,6 +1,6 @@
 'use server'
 
-import { Instrument, instruments } from "@/utils/drizzle/schema"
+import { Instrument, instruments, instrumentTypes } from "@/utils/drizzle/schema"
 import db from "@/utils/drizzle/db"
 import { revalidatePath } from 'next/cache'
 import { sql } from "drizzle-orm"

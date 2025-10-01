@@ -14,9 +14,3 @@ export const instrumentTypes = pgTable("instrument_types", {
   createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
   name: varchar()
 });
-
-type SelectInstrument = typeof instruments.$inferSelect;
-type InsertInstrument = typeof instruments.$inferInsert;
-
-export type Instrument = SelectInstrument;
-export type NewInstrument = InsertInstrument;
